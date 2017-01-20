@@ -1,7 +1,8 @@
-@extends('master')
+@extends('layouts.app')
 
 @section('content')
 
+<div class="container">
   <h1>Articles</h1>
 
 
@@ -13,7 +14,7 @@
 
           <h2>
 
-            <a href="/articles/{{ $article->id }}"> {{ $article->title }} </a>
+            <a href="{{ url('/articles', $article->id) }}"> {{ $article->title }} </a>
 
           </h2>
 
@@ -27,5 +28,5 @@
       </article>
 
     @endforeach
-
+</div>
 @endsection
