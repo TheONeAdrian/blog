@@ -20,7 +20,7 @@ Route::get('/', function () {
 */
 Route::get('/', 'WelcomeController@index');
 
-//Route::get('/home', 'HomeController@index');
+/*Route::get('/home', 'HomeController@index');
 Route::group(['middleware' => 'auth'], function(){
   Route::get('/about', 'PagesController@about');
   Route::get('/contact', 'PagesController@contact');
@@ -34,3 +34,6 @@ Route::group(['middleware' => 'auth'], function(){
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+*/
+
+Route::resource('articles', 'ArticlesController');

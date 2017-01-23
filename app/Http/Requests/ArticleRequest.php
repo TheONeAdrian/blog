@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CreateArticleRequest extends FormRequest
+class ArticleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,7 @@ class CreateArticleRequest extends FormRequest
     public function rules()
     {
         return [
+            'user_id'=> App\Article::getAuthorAttribute(),
             'title' => 'required|min:3',
             'body' => 'required',
             'published_at' => 'required|date'

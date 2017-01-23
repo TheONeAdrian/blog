@@ -9,14 +9,25 @@ class Article extends Model
 {
 
     protected $fillable = [
-
+        'user_id',
         'title',
         'body',
         'published_at'
     ];
 
+    /*
+        additional fields to treat as carbon instances
+
+    */
+
     protected $dates = ['published_at'];
 
+
+
+/*
+    scope queries to published articles
+
+*/
     public function scopePublished($query)
     {
 
@@ -24,6 +35,10 @@ class Article extends Model
 
     }
 
+/*
+
+    scope queries to unpublished articles
+*/
     public function scopeUnpublished($query)
     {
 
@@ -31,6 +46,11 @@ class Article extends Model
 
     }
 
+/*
+
+      Set the published_at attribute
+
+*/
     public function setPublishedAtAttribute($date)
     {
 
@@ -38,6 +58,18 @@ class Article extends Model
 
     }
 
+    public function getAuthorAttribute()
+    {
+       return Auth::user()->id;
+    }
 
+    /*
+        An article is owned by a user
+    */
+
+    public function user()
+    {
+        return $this->belongsTo('App\User','user_id');
+    }
 
 }
