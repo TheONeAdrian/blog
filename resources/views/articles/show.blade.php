@@ -30,7 +30,14 @@
 
   </div>
 -->
+<hr>
+<br>
 
+{{ Form::open(['route' => ['articles.destroy', $article->id], 'method' => 'DELETE' ]) }}
+
+    <button type="submit" class="btn btn-danger">Delete</button>
+
+{{ Form::close() }}
 
 </div>
 
