@@ -50,28 +50,20 @@ class ArticlesController extends Controller
 
     }
 
-    public function store(ArticleRequest $request)
+    public function store(Request $request)
     {
+      $this->validates($request, $this->model->$rules);
 
-/*       $input = Request::all();
-       $input['published_at'] = Carbon::now();
+      $article = new $this->model;
 
-       Article::create($input);
+      $article->title = $request->title;
 
-       return redirect('articles');
+      $article->body =$request->body;
 
+      $article->user_id = $request->user()->id;
 
-      $this->validate($request, [
-        'title' => 'required',
-        'body' => 'required',
-      ]);
+      $article->save();
 
-        $input = $request->all();
-        $input['published_at'] = \Carbon\Carbon::now();
-*/
-          $this->model->create($request->all());
-
-      //      $this->model->save();
 
       return redirect('articles');
 
