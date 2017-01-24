@@ -30,10 +30,10 @@ Route::group(['middleware' => 'auth'], function(){
   Route::post('articles', 'ArticlesController@store');
 });
 
+*/
+
+Route::resource('articles', 'ArticlesController');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-*/
-
-Route::resource('articles', 'ArticlesController');

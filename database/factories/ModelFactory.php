@@ -22,13 +22,14 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Article::class, function(Faker\Generator $faker){
+$factory->define(App\Article::class, function(Faker\Generator $faker)
+{
   return [
-    'user_id'=> 1,
+    'user_id'=> strd_random(1-100),
     'title'=>$faker->name,
     'body'=> $faker->paragraph,
     'published_at' =>\Carbon\Carbon::now(),
 
   ];
-  
+
 });

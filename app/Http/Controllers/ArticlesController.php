@@ -69,9 +69,15 @@ class ArticlesController extends Controller
         $input = $request->all();
         $input['published_at'] = \Carbon\Carbon::now();
 */
-          $this->model->create($request->all());
+        //  $this->model->create($request->all());
 
       //      $this->model->save();
+
+      //return redirect('articles');
+
+      $article = new Article($request->all());
+
+      Auth::user()->articles()->save($article);
 
       return redirect('articles');
 

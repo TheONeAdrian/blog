@@ -2,7 +2,11 @@
 
 namespace App\Http\Requests;
 
+use Illuminate\Http\Request;
+
 use Illuminate\Foundation\Http\FormRequest;
+
+use App\Article;
 
 class ArticleRequest extends FormRequest
 {
@@ -24,7 +28,7 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id'=> App\Article::getAuthorAttribute(),
+            'user_id'=> \Article::getAuthorAttribute(),
             'title' => 'required|min:3',
             'body' => 'required',
             'published_at' => 'required|date'
