@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ArticleRequest extends FormRequest
+class CreateArticlesRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class ArticleRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return false;
     }
 
     /**
@@ -24,10 +24,7 @@ class ArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id'=> App\Article::getAuthorAttribute(),
-            'title' => 'required|min:3',
-            'body' => 'required',
-            'published_at' => 'required|date'
+            //
         ];
     }
 }
