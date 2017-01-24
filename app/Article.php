@@ -15,6 +15,8 @@ class Article extends Model
         'published_at'
     ];
 
+    protected $rules =['title', 'body'];
+
     /*
         additional fields to treat as carbon instances
 
