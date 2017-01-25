@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
+
+use App\Article;
+
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function __construct(Article $model)
     {
-        $this->middleware('auth');
+        $this->model = $model;
     }
 
     /**
@@ -23,6 +22,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $articles = $this->model->latest('published_at')->published()->get();
+        return view('articles.index', compact('articles'));
     }
 }

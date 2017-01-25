@@ -3,8 +3,15 @@
 @section('content')
 
 <div class="container">
-  <h1>Articles</h1>
-
+<div style="display: inline-block; margin-right: 10px;">
+    <h1>Articles</h1>
+  </div>
+  
+  <div style="display: inline-block;">
+    <a href="articles/create">
+      <i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i>
+      </a>
+  </div>
 
 <hr>
 
