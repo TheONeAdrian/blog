@@ -16,6 +16,8 @@ use App\Http\Requests\ArticleRequest;
 class ArticlesController extends Controller
 {
 
+      protected $rules =['title', 'body'];
+
     public function __construct(Article $model)
     {
       $this->model = $model;
@@ -52,7 +54,10 @@ class ArticlesController extends Controller
 
     public function store(Request $request)
     {
-      $this->validates($request, $this->model->$rules);
+
+  //    protected $rules =['title', 'body'];
+
+      $this->validate($request, $this->model->$rules);
 
       $article = new $this->model;
 
@@ -64,15 +69,14 @@ class ArticlesController extends Controller
 
       $article->save();
 
-<<<<<<< HEAD
+
         $input = $request->all();
         $input['published_at'] = \Carbon\Carbon::now();
-*/
+
         //  $this->model->create($request->all());
 
       //      $this->model->save();
-=======
->>>>>>> 74590bf419d7d834d7be336ce2ef0e9b06d61767
+
 
       //return redirect('articles');
 
