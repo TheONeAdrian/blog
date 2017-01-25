@@ -16,6 +16,8 @@ use App\Http\Requests\ArticleRequest;
 class ArticlesController extends Controller
 {
 
+    private $rules =['title', 'body'];
+
     public function __construct(Article $model)
     {
       $this->model = $model;
@@ -52,7 +54,7 @@ class ArticlesController extends Controller
 
     public function store(Request $request)
     {
-      $this->validates($request, $this->model->$rules);
+      $this->validates($request, $this->$rules);
 
       $article = new $this->model;
 
