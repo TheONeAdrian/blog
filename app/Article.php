@@ -9,13 +9,13 @@ class Article extends Model
 {
 
     protected $fillable = [
-        'user_id',
+        // 'user_id',
         'title',
         'body',
         'published_at'
     ];
 
-    protected $rules =['title', 'body'];
+
 
     /*
         additional fields to treat as carbon instances

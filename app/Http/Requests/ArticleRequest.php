@@ -19,7 +19,7 @@ class ArticleRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -31,7 +31,7 @@ class ArticleRequest extends FormRequest
     {
         return [
 
-            'user_id'=> \Article::getAuthorAttribute(),
+            // 'user_id'=> \Auth::user()->id,
             'title' => 'required|min:3',
             'body' => 'required',
             'published_at' => 'required|date'

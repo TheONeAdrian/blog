@@ -16,8 +16,16 @@ use App\Http\Requests\ArticleRequest;
 class ArticlesController extends Controller
 {
 
-      protected $rules =['title', 'body'];
+/**
+    private $rules = [
+    
+    'title' => 'required', 
+    'body'  => 'required',
+    'published_at' => 'required'
 
+    ];
+
+*/
     public function __construct(Article $model)
     {
       $this->model = $model;
@@ -38,7 +46,6 @@ class ArticlesController extends Controller
 
           $article = $this->model->findOrFail($id);
 
-//          dd($article->published_at);
 
           return view('articles.show', compact('article'));
 
@@ -52,14 +59,15 @@ class ArticlesController extends Controller
 
     }
 
-    public function store(Request $request)
+    public function store(ArticleRequest $request)
     {
 
-  //    protected $rules =['title', 'body'];
+      // $article = $this->model
+  
+  /*    
+      $this->validates($request, $this->$rules);
 
-      $this->validate($request, $this->model->$rules);
-
-      $article = new $this->model;
+      $article = new Article;
 
       $article->title = $request->title;
 
@@ -68,21 +76,10 @@ class ArticlesController extends Controller
       $article->user_id = $request->user()->id;
 
       $article->save();
+*/
+       $input = $request->all();
 
-
-        $input = $request->all();
-        $input['published_at'] = \Carbon\Carbon::now();
-
-        //  $this->model->create($request->all());
-
-      //      $this->model->save();
-
-
-      //return redirect('articles');
-
-      $article = new Article($request->all());
-
-      Auth::user()->articles()->save($article);
+       Article::create($input);
 
       return redirect('articles');
 
