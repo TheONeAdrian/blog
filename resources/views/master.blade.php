@@ -12,7 +12,9 @@
     <div class="container">
 
      @if (Session::has('flash message'))
-    <div class= "alert alert-success">{{ Session::get('flash message') }}</div>
+    <div class= "alert alert-success">
+    {{ Session::get('flash message') }}
+    </div>
     @endif 
 
     @yield('content')
