@@ -55,7 +55,7 @@ class ArticlesController extends Controller
 
        Article::create($input);
 
-    \Session::flash ('flash_message', 'Article succesfully created');
+       flash('New article created!','success');
 
       return redirect('articles');
 
