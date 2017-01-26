@@ -15,17 +15,16 @@
 <hr>
 <br>
 
-{{ Form::open(['route' => ['articles.edit', $article->id], 'method' => 'DELETE' ]) }}
+<a class="btn btn-info" href="{{ route('articles.edit',$article->id) }} ">edit</a>
 
-    <button type="submit" class="btn btn-primary">Edit</button>
+	<div  style="display: inline-block;">
+		{{ Form::open(['route' => ['articles.destroy', $article->id], 'method' => 'DELETE' ]) }}
 
-{{ Form::close() }}
+        <button type="submit" class="btn btn-danger">Delete</button>
 
-{{ Form::open(['route' => ['articles.destroy', $article->id], 'method' => 'DELETE' ]) }}
+      {{ Form::close() }} 
+	</div>
 
-    <button type="submit" class="btn btn-danger">Delete</button>
-
-{{ Form::close() }}
 
 
 </div>

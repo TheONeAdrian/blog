@@ -23,6 +23,10 @@
 </head>
 <body>
     <div id="app">
+        <div style="border-style: solid;border-top-style: solid;border-top-width: 10px;
+    border-color: rgb(108,215,229);border-bottom: 0px solid;">
+            
+        </div>
         <nav class="navbar navbar-default navbar-static-top">
 
             <div class="container">
