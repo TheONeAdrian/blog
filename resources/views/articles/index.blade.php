@@ -2,9 +2,24 @@
 
 @section('content')
 
-<div class="container">
-  <h1>Articles</h1>
+@if (session()->has('flash_notification.message'))
+    <div class="alert alert-{{ session('flash_notification.level') }}">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 
+        {!! session('flash_notification.message') !!}
+    </div>
+@endif
+
+<div class="container">
+<div style="display: inline-block; margin-right: 10px;">
+    <h1>Articles</h1>
+  </div>
+  
+  <div style="display: inline-block;">
+    <a href="articles/create">
+      <i class="fa fa-plus-circle fa-3x" aria-hidden="true"></i>
+      </a>
+  </div>
 
 <hr>
 

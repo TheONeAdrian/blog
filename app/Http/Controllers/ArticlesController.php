@@ -10,24 +10,13 @@ use App\Article;
 
 use App\Http\Requests\ArticleRequest;
 
-//use Requests;
-//use Request;
 
 class ArticlesController extends Controller
 {
-
-/**
-    private $rules = [
     
-    'title' => 'required', 
-    'body'  => 'required',
-    'published_at' => 'required'
-
-    ];
-
-*/
     public function __construct(Article $model)
     {
+      $this->middleware('auth',['except' =>['show']]); 
       $this->model = $model;
     }
 
@@ -62,24 +51,11 @@ class ArticlesController extends Controller
     public function store(ArticleRequest $request)
     {
 
-      // $article = $this->model
-  
-  /*    
-      $this->validates($request, $this->$rules);
-
-      $article = new Article;
-
-      $article->title = $request->title;
-
-      $article->body =$request->body;
-
-      $article->user_id = $request->user()->id;
-
-      $article->save();
-*/
        $input = $request->all();
 
        Article::create($input);
+
+       flash('New article created!','success');
 
       return redirect('articles');
 

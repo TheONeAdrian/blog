@@ -12,6 +12,7 @@
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
 
     <!-- Scripts -->
     <script>
@@ -22,7 +23,12 @@
 </head>
 <body>
     <div id="app">
+        <div style="border-style: solid;border-top-style: solid;border-top-width: 10px;
+    border-color: rgb(108,215,229);border-bottom: 0px solid;">
+            
+        </div>
         <nav class="navbar navbar-default navbar-static-top">
+
             <div class="container">
                 <div class="navbar-header">
 
@@ -80,6 +86,7 @@
 
         @yield('content')
     </div>
+
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
